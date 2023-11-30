@@ -11,30 +11,43 @@ import "./styles/styles.css"
 
 function App() {
 
-  const [showLanding, setLanding] = React.useState(true)
-  const [showMain, setMain] = React.useState(false)
+    const [showLanding, setLanding] = React.useState(true)
+    const [showMain, setMain] = React.useState(false)
+    const [showCredits, setCredits] = React.useState(false)
 
-  const enter = () => {
-    setLanding(false)
-    setMain(true)
-  }
+    const enter = () => {
+        setLanding(false)
+        setMain(true)
+    }
 
-  const Main = () => { return (
+    const navCredits = () =>
+    {
+        setMain(false)
+        setCredits(true)
+    }
+
+    const navHome = () =>
+    {
+        setMain(true)
+        setCredits(false)
+    }
+
+    const Main = () => { return (
     <div className='main' style={{backgroundColor:"#13505B"}}>
-      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossOrigin="anonymous"></link>
-      <title>Home - ICK</title>
-      <script src="index.js"></script> 
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossOrigin="anonymous"></link>
+    <title>Home - ICK</title>
+    <script src="index.js"></script> 
 
-      <div id="titleCard"></div>
-      <div id="titleHeader">
+    <div id="titleCard"></div>
+    <div id="titleHeader">
         <h1 id="title">ICK-IO</h1>
         <nav className="nav navbar-expand-lg justify-content-center">
             <ul className="navbar-nav">
                 <li className="nav-item">
-                    <a className="nav-link active mx-3" href="#" style={{fontSize: "18px"}}>Home</a>
+                    <button className="nav-link active mx-3" onClick={navHome} style={{fontSize: "18px"}}>Home</button>
                 </li>
                 <li className="nav-item">
-                    <a className="nav-link mx-3" href="credits.html" style={{fontSize: "18px"}}>Credits</a>
+                    <button className="nav-link mx-3" onClick={navCredits} style={{fontSize: "18px"}}>Credits</button>
                 </li>
             </ul>
         </nav>
@@ -61,13 +74,56 @@ function App() {
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossOrigin="anonymous"></script>
 
-     </div>
-     )}
+    </div>
+    )}
+
+const Credits = () => {return (
+<div>
+<header id="titleCard">
+    <div id="titleHeader">
+        <h1 id="title">ICK-IO</h1>
+        <nav class="nav navbar-expand-lg justify-content-center">
+            <ul class="navbar-nav">
+                <li className="nav-item">
+                    <button className="nav-link active mx-3" onClick={navHome} style={{fontSize: "18px"}}>Home</button>
+                </li>
+                <li className="nav-item">
+                    <button className="nav-link mx-3" onClick={navCredits} style={{fontSize: "18px"}}>Credits</button>
+                </li>
+            </ul>
+        </nav>
+        
+    </div>
+    
+</header>
+<body>
+<div id="mondoContainer" class="d-flex justify-content-center align-items-center">
+    <div id="contentContainer">
+        <div id="feed">
+            <h2>Credits</h2>
+            <p>
+                10/21/2023 
+                <br/>
+                <br/>
+                Connor Persels <br/>
+                cpersels@iastate.edu <br/>
+
+                <br/>
+                
+                Eli Newlin <br/>
+                newlin18@iastate.edu
+            </p>
+        </div>
+    </div>
+
+</div>
+</body>
+</div>
+)}
 
 
 
-
-  const Landing = () => {return (
+const Landing = () => {return (
 <div className="landing">
     <title>Landing - ICK-IO</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossOrigin="anonymous"></link>
@@ -91,16 +147,17 @@ function App() {
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossOrigin="anonymous"></script>
     </div>
-  )}
+)}
 
-  console.log(showLanding)
+console.log(showLanding)
 
-  return (
+return (
     <div className="App">
-      {showLanding ? <Landing /> : null}
-      {showMain ? <Main /> : null}
+    {showLanding ? <Landing /> : null}
+    {showMain ? <Main /> : null}
+    {showCredits ? <Credits /> : null}
     </div>
-  );
+);
 }
 
 export default App;

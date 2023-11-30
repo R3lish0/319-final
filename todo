@@ -1,0 +1,22 @@
+Things we need to do for this puppy to be done
+
+-credits page link to work - DONE
+
+-mongo db implementation
+	-collections creation
+	-original population
+	
+-express.js
+	-get posts
+	-add posts
+	-like/dislike
+
+
+
+POST
+{
+	date
+	favor
+	content
+	comments [content] -- optional
+}
