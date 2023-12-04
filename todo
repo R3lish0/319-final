@@ -15,8 +15,12 @@ Things we need to do for this puppy to be done
 
 POST
 {
-	date
-	favor
 	content
-	comments [content] -- optional
+	favor
+	date
 }
+
+
+img user date
+content
+favor

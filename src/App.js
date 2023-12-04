@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import './App.css';
 import backgroundVideo from './images/bg-vid.mp4'
 import "./styles/styles.css"
-
+import Feed from "./feed"
 
 
 
@@ -63,6 +63,7 @@ function App() {
         </div>
         <div id="feed">
             <h2>Read Some Posts</h2>
+            <Feed />
         </div>
     </div>
     <div id="leaderBoard">
@@ -78,12 +79,12 @@ function App() {
     )}
 
 const Credits = () => {return (
-<div>
+<div style={{backgroundColor:"#13505B"}}>
 <header id="titleCard">
     <div id="titleHeader">
         <h1 id="title">ICK-IO</h1>
-        <nav class="nav navbar-expand-lg justify-content-center">
-            <ul class="navbar-nav">
+        <nav className="nav navbar-expand-lg justify-content-center">
+            <ul className="navbar-nav">
                 <li className="nav-item">
                     <button className="nav-link active mx-3" onClick={navHome} style={{fontSize: "18px"}}>Home</button>
                 </li>
@@ -96,8 +97,8 @@ const Credits = () => {return (
     </div>
     
 </header>
-<body>
-<div id="mondoContainer" class="d-flex justify-content-center align-items-center">
+
+<div id="mondoContainer" className="d-flex justify-content-center align-items-center">
     <div id="contentContainer">
         <div id="feed">
             <h2>Credits</h2>
@@ -117,7 +118,6 @@ const Credits = () => {return (
     </div>
 
 </div>
-</body>
 </div>
 )}
 

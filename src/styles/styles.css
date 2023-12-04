@@ -115,3 +115,38 @@ html, body{
     height:7em;
     margin-bottom:2em
 }
+
+#topRow{
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-left:1em;
+    padding-right:1em;
+}
+
+#post-container{
+    display:flex;
+    flex-direction: column;
+    background-color: white;
+    margin:3em;
+    border-radius: 25px;
+    text-align:left;
+}
+#post-content{
+    margin-left: 2.5em;
+}
+
+#favor{
+    display:flex;
+    flex-direction: row;
+    width:25%;
+    float:right;
+    justify-content: space-around;
+    margin:0.5em
+}
+
+#favor button{
+    background-color: #0C7489;
+    border-radius: 25px;
+    color:white
+}
