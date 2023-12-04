@@ -3,6 +3,7 @@ import './App.css';
 import backgroundVideo from './images/bg-vid.mp4'
 import "./styles/styles.css"
 import Feed from "./feed"
+import Lead from "./leaderboard"
 
 
 
@@ -67,7 +68,8 @@ function App() {
         </div>
     </div>
     <div id="leaderBoard">
-        <h2>Leaderboard</h2>
+        <h2>LoserBoard</h2>
+        <Lead />
     </div>
 
 </div>

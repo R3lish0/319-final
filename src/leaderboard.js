@@ -2,54 +2,26 @@ import React, { useEffect, useState } from 'react';
 import './App.css';
 import "./styles/styles.css"
 import anon from "./images/anon.png"
-import { wait } from '@testing-library/user-event/dist/utils';
-
-
 
 
 async function populate()
 {
-    const response = await fetch("https://final-server-ktxj.onrender.com/allusers");
+    const response = await fetch("https://final-server-ktxj.onrender.com/allusers-sorted");
     const userFeed = await response.json();
     return (userFeed)
 }
 
 
 
-
-
-//img user date
-//content
-//favor
-
-
-
-function Feed() {
-    const [feedData, setFeedData] = React.useState(null);
+function Leader() {
+    const [leadData, setLeadData] = React.useState(null);
     const [reRender, setRerender] = React.useState(false);
 
-
-    async function updateFavor(id, favor){
-        const requestOptions = {
-        method: 'PUT',
-        headers: {
-            "Content-type": "application/json"
-        },
-        body: JSON.stringify({ id: id, favor: favor})
-        };
-    
-        await fetch('https://final-server-ktxj.onrender.com/favor', requestOptions)
-    
-        setRerender((prev) => !prev)
-    }
-
-
     const getData = () => {
-        console.log('getting feed data')
-        console.log('just rerendered')
+        console.log('getting leaderboard data')
         populate()
-        .then(async (userFeed) => 
-        {setFeedData(userFeed.map((obj) => 
+        .then(async (data) => 
+        {setLeadData(data.map((obj) => 
             {
             const dt = new Date(obj.date);
             let id = obj._id;
@@ -65,9 +37,7 @@ function Feed() {
             </div>
             <div id="favor-wrapper">
                 <div id="favor" style={{float:"right"}}>
-                    <button onClick={() => {updateFavor(id,1)}}>Like</button>
-                    <p style={{margin:"auto"}}>{obj.favor}</p>
-                    <button onClick={() => {updateFavor(id,-1)}}>Dislike</button>
+                    <p style={{margin:"auto"}}>{curFavor}</p>
                 </div>
             </div>
             </div>
@@ -77,17 +47,16 @@ function Feed() {
         })
     }
 
+
     React.useEffect(() => {
         getData();
     },[reRender])
 
-
-    
-
     return (
         <div>
-            <div id="feed">
-            {feedData}
+            <button onClick={() => setRerender((prev) => !prev)}>Refresh</button>
+            <div id="lead">
+            {leadData}
             </div>
         </div>
         
@@ -95,4 +64,4 @@ function Feed() {
 }
 
 
-export default Feed;
+export default Leader;
