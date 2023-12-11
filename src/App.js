@@ -1,9 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import './App.css';
 import backgroundVideo from './images/bg-vid.mp4'
 import "./styles/styles.css"
 import Feed from "./feed"
 import Lead from "./leaderboard"
+import NewPost from "./newPost"
 
 
 
@@ -33,6 +34,8 @@ function App() {
         setCredits(false)
     }
 
+
+
     const Main = () => { return (
     <div className='main' style={{backgroundColor:"#13505B"}}>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossOrigin="anonymous"></link>
@@ -56,12 +59,7 @@ function App() {
     </div>
     <div id="mondoContainer">
     <div id="contentContainer">
-        <div id="postCreation" style={{width:"100%",height:"auto"}}>
-            <form style={{display:"flex", flexDirection: "column", width:"85%", margin:"auto", padding:"2em", paddingTop:"0"}}>
-            <label style={{textAlign: "center"}} id="fname"><h2>Post An Ick</h2></label><br></br>
-            <textarea rows="0" cols="0" style={{height:"10em",width:"90%",margin:"auto"}}></textarea>
-            </form>        
-        </div>
+        <NewPost />
         <div id="feed">
             <h2>Read Some Posts</h2>
             <Feed />
