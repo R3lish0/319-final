@@ -45,16 +45,19 @@ html, body{
 }
 #feed{
     height:50em;
-    margin-bottom:15em;
     overflow:scroll;
 }
 #leaderBoard{
     margin-left:3em;
     width:30%;
-    height:66.8em
+    height:66.8em;
+    overflow: scroll;
+
+
 
 
 }
+
 #mondoContainer
 {
     margin-left:3em;

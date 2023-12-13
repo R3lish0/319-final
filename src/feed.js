@@ -9,7 +9,7 @@ import { wait } from '@testing-library/user-event/dist/utils';
 
 async function populate()
 {
-    const response = await fetch("https://final-server-ktxj.onrender.com/allusers");
+    const response = await fetch("http://localhost:8080/allusers");
     const userFeed = await response.json();
     return (userFeed)
 }
@@ -38,7 +38,7 @@ function Feed() {
         body: JSON.stringify({ id: id, favor: favor})
         };
     
-        await fetch('https://final-server-ktxj.onrender.com/favor', requestOptions)
+        await fetch('http://localhost:8080/favor', requestOptions)
     
         setRerender((prev) => !prev)
     }
@@ -87,6 +87,7 @@ function Feed() {
     return (
         <div>
             <div id="feed">
+            <button onClick={() => setRerender((prev) => !prev)}>Refresh</button>
             {feedData}
             </div>
         </div>

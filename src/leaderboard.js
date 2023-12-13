@@ -6,7 +6,7 @@ import anon from "./images/anon.png"
 
 async function populate()
 {
-    const response = await fetch("https://final-server-ktxj.onrender.com/allusers-sorted");
+    const response = await fetch("http://localhost:8080/allusers-sorted");
     const userFeed = await response.json();
     return (userFeed)
 }
